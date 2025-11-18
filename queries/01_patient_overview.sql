@@ -1,12 +1,12 @@
 --number of patients by city
-select distinct city, count(city) as total_patient from patients
-group by city 
-order by city DESC
+SELECT DISTINCT city, COUNT(city) AS total_patient FROM patients
+GROUP BY city 
+ORDER BY city DESC
 
 
 --avarage of patient's age per insurance provider
-select distinct insurance_provider, avg(age) as avg_age from patients
-group by insurance_provider
+SELECT DISTINCT insurance_provider, AVG(age) AS avg_age FROM patients
+GROUP BY insurance_provider
 
 
 --patient's name with more than 3 appointments in two last years
@@ -21,5 +21,4 @@ WHERE a.appointment_date >= date('now', '-2 year')
 GROUP BY p.patient_id, p.name
 HAVING COUNT(a.appointment_id) > 3
 ORDER BY appointment_count DESC;
-
 
